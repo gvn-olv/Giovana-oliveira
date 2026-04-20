@@ -1,0 +1,355 @@
+!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Curso Prática Administrativa INSS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:linear-gradient(to bottom,#f4f6fb,#ffffff);color:#1a1a1a;padding-bottom:90px;}
+
+.top-bar{
+  background:#ff0000;
+  color:white;
+  overflow:hidden;
+  white-space:nowrap;
+  font-weight:700;
+  padding:10px 0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+}
+
+.top-bar span{
+  display:inline-block;
+  padding-left:100%;
+  animation:scrollText 12s linear infinite;
+}
+
+@keyframes scrollText{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-100%);}
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:35px 25px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0f2a5c,#1e3c72,#2a5298);
+  color:white;
+  text-align:center;
+  padding:140px 20px 90px;
+  border-bottom-left-radius:40px;
+  border-bottom-right-radius:40px;
+}
+
+.hero h1{
+  font-size:2.5rem;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.hero p{
+  font-size:1.1rem;
+  line-height:1.8;
+  max-width:800px;
+  margin:0 auto;
+}
+
+h2{
+  text-align:center;
+  margin:60px 0 30px;
+  color:#0f2a5c;
+  font-size:2rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:0 10px 30px rgba(15,42,92,0.08);
+  line-height:1.8;
+  font-weight:500;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.7s ease;
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+}
+
+.video-box{
+  background:#000;
+  height:320px;
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.price-box{
+  text-align:center;
+  background:linear-gradient(135deg,#1e3c72,#0f2a5c);
+  color:white;
+  padding:60px 25px;
+  border-radius:25px;
+}
+
+.price{
+  font-size:3rem;
+  color:#ffeb3b;
+  margin:15px 0;
+  font-weight:800;
+}
+
+.old{
+  text-decoration:line-through;
+  color:#ffcb05;
+}
+
+.btn{
+  position:relative;
+  overflow:hidden;
+  background:#ffcb05;
+  color:#000;
+  padding:18px 40px;
+  border-radius:50px;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
+  animation:pulse 1.8s infinite;
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:50%;
+  height:100%;
+  background:rgba(255,255,255,0.4);
+  transform:skewX(-25deg);
+  animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+  0%{left:-100%;}
+  100%{left:150%;}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.04);}
+  100%{transform:scale(1);}
+}
+
+.social{
+  text-align:center;
+  margin-top:50px;
+}
+
+.social a{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin:10px;
+  padding:12px 20px;
+  background:white;
+  border-radius:30px;
+  text-decoration:none;
+  color:#1e3c72;
+}
+
+.whatsapp{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  text-decoration:none;
+  z-index:999;
+}
+
+.cta-fixo{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#ffcb05;
+  padding:15px;
+  text-align:center;
+  font-weight:800;
+  z-index:998;
+}
+
+.cta-fixo a{
+  text-decoration:none;
+  color:#000;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#0f2a5c;
+  color:white;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <span>⚠️ VAGAS LIMITADAS • ÚLTIMAS VAGAS DISPONÍVEIS • GARANTA AGORA ⚠️</span>
+</div>
+
+<section class="hero">
+  <h1>Aprenda a ganhar dinheiro na área administrativa sem OAB</h1>
+  <p>
+    Descubra como iniciar do zero na prática administrativa do INSS, captar clientes e construir uma nova fonte de renda ainda este mês.
+  </p>
+  <a href="https://pay.hotmart.com/V105464249K" class="btn" target="_blank">
+    QUERO COMEÇAR AGORA
+  </a>
+</section>
+
+<section class="container">
+  <h2>Assista ao vídeo explicativo</h2>
+  <div class="video-box">
+    <iframe
+      src="https://drive.google.com/file/d/1bx4HIG6MVp7vY5JLvFkDx2r9sWRXvTa_/preview"
+      width="100%"
+      height="100%"
+      allow="autoplay"
+      allowfullscreen
+      style="border:none;">
+    </iframe>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Sobre o Professor</h2>
+  <div class="card">
+    Atua há 14 anos na área administrativa, + de 7 escritórios, + de 4 mil casos resolvidos.
+    Venha fazer parte do melhor time e comece a atuar na área administrativa sem medo.
+  </div>
+</section>
+
+<section class="container">
+  <h2>O que você vai aprender</h2>
+  <div class="grid">
+    <div class="card">💰 Como gerar renda com serviços administrativos</div>
+    <div class="card">📈 Como conseguir clientes mesmo começando do zero</div>
+    <div class="card">📄 Como atuar com prática administrativa não jurídica</div>
+    <div class="card">🚀 Passo a passo para iniciar sem experiência</div>
+    <div class="card">📁 Modelos prontos para usar imediatamente</div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Para quem é esse curso</h2>
+  <div class="grid">
+    <div class="card">✔ Iniciantes sem experiência</div>
+    <div class="card">✔ Quem não possui OAB</div>
+    <div class="card">✔ Estudantes de Direito</div>
+    <div class="card">✔ Bacharéis em Direito</div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Os 5 módulos do curso</h2>
+  <div class="grid">
+    <div class="card">📘 Módulo 01 – Base legal</div>
+    <div class="card">📗 Módulo 02 – Fundamentos dos benefícios</div>
+    <div class="card">📙 Módulo 03 – INSS na prática</div>
+    <div class="card">📕 Módulo 04 – Captação de clientes</div>
+    <div class="card">📓 Módulo 05 – Montagem do escritório</div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Perguntas Frequentes</h2>
+  <div class="card"><strong>Preciso ter experiência?</strong><br>Não, o curso foi criado para iniciantes.</div>
+  <div class="card" style="margin-top:20px;"><strong>Preciso ter OAB?</strong><br>Não, a atuação é administrativa.</div>
+  <div class="card" style="margin-top:20px;"><strong>Recebo acesso imediato?</strong><br>Sim, após a compra pela Hotmart.</div>
+</section>
+
+<section class="container" id="comprar">
+  <div class="price-box">
+    <p>De <span class="old">R$490</span> por apenas</p>
+    <p class="price">R$298</p>
+
+    <a href="https://pay.hotmart.com/V105464249K" class="btn" target="_blank">
+      GARANTIR MINHA VAGA
+    </a>
+  </div>
+</section>
+
+<div class="social">
+  <a href="https://www.facebook.com/" target="_blank">
+    <i class="fab fa-facebook"></i> Facebook
+  </a>
+  <a href="https://www.instagram.com/curso.praticaadm" target="_blank">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+</div>
+
+<a href="https://wa.me/5589988120711?text=Olá,%20quero%20saber%20mais%20sobre%20esse%20curso." class="whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="cta-fixo">
+  <a href="https://pay.hotmart.com/V105464249K" target="_blank">
+    🔥 GARANTIR MINHA VAGA AGORA
+  </a>
+</div>
+
+<footer>
+© Instituto Prática Administrativa
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+function mostrarCards(){
+  cards.forEach(card=>{
+    const topo = card.getBoundingClientRect().top;
+    if(topo < window.innerHeight - 80){
+      card.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', mostrarCards);
+window.addEventListener('load', mostrarCards);
+</script>
+
+</body>
+</html>
